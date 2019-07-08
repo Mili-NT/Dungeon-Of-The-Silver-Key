@@ -1,5 +1,5 @@
 # Dungeon-Of-The-Silver-Key
-##A basic Lovecraft inspired text-based dungeon crawler written in Python
+## A basic Lovecraft inspired text-based dungeon crawler written in Python
 
 This was my first real project written in Python. I wrote it last year when I knew nothing about classes, OOP, or basically anything beyond the basics of the language.
 
