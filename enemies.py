@@ -1,7 +1,6 @@
 import random
 import moves
 from classes import Enemy
-from colorama import Fore, Style, Back
 
 # Minibosses
 dimensional_shambler = Enemy(

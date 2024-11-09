@@ -73,6 +73,7 @@ void_flame = Move(
     attributes={'spell': True}
 )
 # Enemy Moves
+
 claw = Move(
     name="claw",
     damage_range=(20, 30),
@@ -212,4 +213,34 @@ stomp = Move(
     damage_range=(10, 15),
     target="health",
     move_str=f"{Fore.RED}%enemy stomps at you with a heavy foot, dealing %dmg damage.{Style.RESET_ALL}",
+)
+pummel = Move(
+    name="pummel",
+    damage_range=(30, 35),
+    target="health",
+    move_str=f"{Fore.RED}%enemy pummels you with its appendage, dealing %dmg damage.{Style.RESET_ALL}",
+)
+engulf = Move(
+    name="engulf",
+    damage_range=(30, 35),
+    target="health",
+    move_str=f"{Fore.RED}%enemy engulfs you in its gelatinous form, dealing %dmg damage.{Style.RESET_ALL}",
+)
+slash = Move(
+    name="slash",
+    damage_range=(30, 40),
+    target="health",
+    move_str=f"{Fore.RED}%enemy slashes at you viciously, dealing %dmg damage.{Style.RESET_ALL}",
+)
+eviscerate = Move(
+    name="eviscerate",
+    damage_range=(30, 35),
+    target="health",
+    move_str=f"{Fore.RED}%enemy eviscerates you with a terrible blow, dealing %dmg damage.{Style.RESET_ALL}",
+)
+horrific_wail = Move(
+    name="horrific_wail",
+    damage_range=(20, 20),
+    target="sanity",
+    move_str=f"{Fore.RED}%enemy lets loose a horrific wail... you feel your sanity slipping (-%sanity sanity).{Style.RESET_ALL}."
 )
