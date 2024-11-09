@@ -38,21 +38,21 @@ class Player:
 
 
 class Room:
-    def __init__(self, RoomNumber, RoomDescription, RoomDirections, RoomEnemy, RoomContents):
-        self.RoomNumber = RoomNumber
-        self.RoomDescription = RoomDescription
-        self.RoomDirections = RoomDirections
-        self.RoomEnemy = RoomEnemy
-        self.RoomContents = RoomContents
+    def __init__(self, room_number, room_description, room_directions, room_enemy, room_contents):
+        self.RoomNumber = room_number
+        self.RoomDescription = room_description
+        self.RoomDirections = room_directions
+        self.RoomEnemy = room_enemy
+        self.RoomContents = room_contents
 
-    def LocationCheck(self):
+    def location_check(self):
         print(Fore.WHITE + self.RoomDescription)
         if self.RoomEnemy != "none":
             print(Fore.YELLOW + "You see a " + str(self.RoomEnemy))
         if self.RoomContents != "none":
             print(Fore.WHITE + "This room contains a " + str(self.RoomContents) + ".")
 
-    def PrintDirections(self):
+    def print_directions(self):
         print(self.RoomDirections)
 
 
@@ -98,8 +98,6 @@ class Inventory(object):
                 print("""This item boosts all stats by """ + str(i.StatBoost))
 
 inventory = Inventory()
-
-
 
 class Enemy:
     def __init__(self, adjective, name, description, speed, health):
@@ -305,101 +303,101 @@ Golem = Enemy("A human sized", "Clay Golem", "It is a long abandoned construct o
 
 
 
-RoomOne = Room(RoomNumber=1, RoomDescription="""Blast marks and dark stains litter the walls of this room. 
-In the center lies a robed skeleton grasping a blue potion""", RoomDirections="There are doors to the [S]outh and [E]ast",
-               RoomEnemy="none", RoomContents="Mana Potion")
+RoomOne = Room(room_number=1, room_description="""Blast marks and dark stains litter the walls of this room. 
+In the center lies a robed skeleton grasping a blue potion""", room_directions="There are doors to the [S]outh and [E]ast",
+               room_enemy="none", room_contents="Mana Potion")
 
-RoomTwo = Room(RoomNumber=2, RoomDescription="A bare stone room, with a single clay golem wandering on the far side.",
-               RoomDirections="There are doors to the [N]orth and [E]ast", RoomEnemy="Golem", RoomContents="none")
+RoomTwo = Room(room_number=2, room_description="A bare stone room, with a single clay golem wandering on the far side.",
+               room_directions="There are doors to the [N]orth and [E]ast", room_enemy="Golem", room_contents="none")
 
-RoomThree = Room(RoomNumber=3, RoomDescription="There is a foul muck covering the floor. A group of corpses lie in the center"
+RoomThree = Room(room_number=3, room_description="There is a foul muck covering the floor. A group of corpses lie in the center"
                  " of the room, strangely positioned. From the far side of the room, you feel a foul presence.",
-                 RoomDirections=" is a door to the [E]ast.", RoomEnemy="Hunting Horror", RoomContents="Talisman")
+                 room_directions=" is a door to the [E]ast.", room_enemy="Hunting Horror", room_contents="Talisman")
 
-RoomFour = Room(RoomNumber=4,  RoomDescription="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered "
+RoomFour = Room(room_number=4, room_description="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered "
                   "flasks litter the floor. It appears to be an ancient alchemical storeroom",
-                  RoomDirections="There are doors to the [S]outh and [E]ast", RoomEnemy="none", RoomContents="Health Potion")
+                room_directions="There are doors to the [S]outh and [E]ast", room_enemy="none", room_contents="Health Potion")
 
-RoomFive = Room(RoomNumber=5, RoomDescription=""" The room is littered with the bodies of fallen Lesser Spawn. In the center, 
+RoomFive = Room(room_number=5, room_description=""" The room is littered with the bodies of fallen Lesser Spawn. In the center, 
          the corpse of a long dead warrior clutches an ornate tome. Between you and the tome stands a Moon-Beast.""",
-         RoomDirections="There are doors to the [N]orth and [E]ast", RoomEnemy="Moon-Beast", RoomContents="Ornate Tome")
+                room_directions="There are doors to the [N]orth and [E]ast", room_enemy="Moon-Beast", room_contents="Ornate Tome")
 
-RoomSix = Room(RoomNumber=6, RoomDescription="This room is barren and nondescript, with only a few skeletons to keep you company.",
-              RoomDirections="There are doors to the [S]outh, [E]ast, and [W]est", RoomEnemy="none", RoomContents="none")
+RoomSix = Room(room_number=6, room_description="This room is barren and nondescript, with only a few skeletons to keep you company.",
+               room_directions="There are doors to the [S]outh, [E]ast, and [W]est", room_enemy="none", room_contents="none")
 
-RoomSeven = Room(RoomNumber=7, RoomDescription=""" The room is empty, save for a lone pedestal holding an ancient
+RoomSeven = Room(room_number=7, room_description=""" The room is empty, save for a lone pedestal holding an ancient
 scroll. Before you reach the pedestal, a thick tar-like liquid flows from the walls and amasses into a horrible shape.""",
-RoomDirections="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est", RoomEnemy="Shoggoth", RoomContents="Ancient Scroll")
+                 room_directions="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est", room_enemy="Shoggoth", room_contents="Ancient Scroll")
 
-RoomEight = Room(RoomNumber=8, RoomDescription="You see bare stone room, with a single Lesser Spawn on the far side.",
-                 RoomDirections="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est", RoomEnemy="Lesser Spawn", RoomContents="none")
+RoomEight = Room(room_number=8, room_description="You see bare stone room, with a single Lesser Spawn on the far side.",
+                 room_directions="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est", room_enemy="Lesser Spawn", room_contents="none")
 
-RoomNine = Room(RoomNumber=9, RoomDescription="This room is barren and nondescript, with only a few skeletons to keep you company.",
-                 RoomDirections="There are doors to the [S]outh, [E]ast, and [W]est", RoomEnemy="none", RoomContents="none")
+RoomNine = Room(room_number=9, room_description="This room is barren and nondescript, with only a few skeletons to keep you company.",
+                room_directions="There are doors to the [S]outh, [E]ast, and [W]est", room_enemy="none", room_contents="none")
 
-RoomTen = Room(RoomNumber=10,  RoomDescription="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered "
+RoomTen = Room(room_number=10, room_description="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered "
                    "flasks litter the floor. It appears to be an ancient alchemical storeroom",
-                   RoomDirections="There are doors to the [N]orth and [W]est", RoomEnemy="none", RoomContents="Mana Potion")
+               room_directions="There are doors to the [N]orth and [W]est", room_enemy="none", room_contents="Mana Potion")
 
-RoomEleven = Room(RoomNumber=11, RoomDescription="You see bare stone room, with a single clay golem wandering on the far side.",
-                  RoomDirections="There are doors to the [S]outh, [W]est, and [E]ast", RoomEnemy="Golem", RoomContents="none")
+RoomEleven = Room(room_number=11, room_description="You see bare stone room, with a single clay golem wandering on the far side.",
+                  room_directions="There are doors to the [S]outh, [W]est, and [E]ast", room_enemy="Golem", room_contents="none")
 
-RoomTwelve = Room(RoomNumber=12,  RoomDescription="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered"
+RoomTwelve = Room(room_number=12, room_description="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered"
                    " flasks litter the floor. It appears to be an ancient alchemical storeroom",
-                   RoomDirections="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est.", RoomEnemy="none", RoomContents="Health Potion")
+                  room_directions="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est.", room_enemy="none", room_contents="Health Potion")
 
-RoomThirteen = Room(RoomNumber=13, RoomDescription="""You see a barren room made of ancient stone riddled with moss and pockmarks. 
+RoomThirteen = Room(room_number=13, room_description="""You see a barren room made of ancient stone riddled with moss and pockmarks. 
                   There seems to be no enemies or items in this room.""",
-                  RoomDirections="There are door to the [N]orth, [S]outh, [E]ast, and [W]est", RoomEnemy="none", RoomContents="none")
+                    room_directions="There are door to the [N]orth, [S]outh, [E]ast, and [W]est", room_enemy="none", room_contents="none")
 
-RoomFourteen = Room(RoomNumber=14, RoomDescription="You see bare stone room, with a single clay golem wandering on the far side.",
-                  RoomDirections="There are doors to the [N]orth, [S]outh, [W]est, and [E]ast", RoomEnemy="Golem", RoomContents="none")
+RoomFourteen = Room(room_number=14, room_description="You see bare stone room, with a single clay golem wandering on the far side.",
+                    room_directions="There are doors to the [N]orth, [S]outh, [W]est, and [E]ast", room_enemy="Golem", room_contents="none")
 
-RoomFifteen = Room(RoomNumber=15, RoomDescription="""This room is large and ornate, with carvings of every sort adorning the walls. 
+RoomFifteen = Room(room_number=15, room_description="""This room is large and ornate, with carvings of every sort adorning the walls. 
                   In the center is a large pedestal with a single Silver Key laying upon it""",
-                  RoomDirections="There is a door to the [N]orth", RoomEnemy="none", RoomContents="Silver Key")
+                   room_directions="There is a door to the [N]orth", room_enemy="none", room_contents="Silver Key")
 
-RoomSixteen = Room(RoomNumber=16, RoomDescription="This room is barren and nondescript, with only a few skeletons to keep you company.",
-                  RoomDirections="There are doors to the [S]outh, [E]ast, and [W]est", RoomEnemy="none", RoomContents="none")
+RoomSixteen = Room(room_number=16, room_description="This room is barren and nondescript, with only a few skeletons to keep you company.",
+                   room_directions="There are doors to the [S]outh, [E]ast, and [W]est", room_enemy="none", room_contents="none")
 
-RoomSeventeen = Room(RoomNumber=17, RoomDescription="You see bare stone room, with a single Lesser Spawn on the far side.",
-                  RoomDirections="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est", RoomEnemy="Lesser Spawn", RoomContents="none")
+RoomSeventeen = Room(room_number=17, room_description="You see bare stone room, with a single Lesser Spawn on the far side.",
+                     room_directions="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est", room_enemy="Lesser Spawn", room_contents="none")
 
-RoomEighteen = Room(RoomNumber=18, RoomDescription="You see bare stone room, with a single clay golem wandering on the far side.",
-                  RoomDirections="There are doors to the [N]orth, [S]outh, [W]est, and [E]ast", RoomEnemy="Golem", RoomContents="Health Potion")
+RoomEighteen = Room(room_number=18, room_description="You see bare stone room, with a single clay golem wandering on the far side.",
+                    room_directions="There are doors to the [N]orth, [S]outh, [W]est, and [E]ast", room_enemy="Golem", room_contents="Health Potion")
 
-RoomNineteen = Room(RoomNumber=19, RoomDescription="This room is barren and nondescript, with only a few skeletons to keep you company.",
-                  RoomDirections="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est", RoomEnemy="none", RoomContents="none")
+RoomNineteen = Room(room_number=19, room_description="This room is barren and nondescript, with only a few skeletons to keep you company.",
+                    room_directions="There are doors to the [N]orth, [S]outh, [E]ast, and [W]est", room_enemy="none", room_contents="none")
 
-RoomTwenty = Room(RoomNumber=20, RoomDescription="You see bare stone room, with a single Lesser Spawn on the far side.",
-                  RoomDirections="There are doors to the [N]orth and [E]ast", RoomEnemy="Lesser Spawn", RoomContents="none")
+RoomTwenty = Room(room_number=20, room_description="You see bare stone room, with a single Lesser Spawn on the far side.",
+                  room_directions="There are doors to the [N]orth and [E]ast", room_enemy="Lesser Spawn", room_contents="none")
 
-RoomTwentyOne = Room(RoomNumber=21, RoomDescription="""A stale wind sweeps past you as you enter the room. On the far side there is a pedestal "
+RoomTwentyOne = Room(room_number=21, room_description="""A stale wind sweeps past you as you enter the room. On the far side there is a pedestal "
                   "with an strange book upon it. You have a feeling that you are not alone.""",
-                  RoomDirections="There are doors to the [S]outh and [W]est", RoomEnemy="Flying Polyp", RoomContents="Cursed Tome")
+                     room_directions="There are doors to the [S]outh and [W]est", room_enemy="Flying Polyp", room_contents="Cursed Tome")
 
-RoomTwentyTwo = Room(RoomNumber=22, RoomDescription="This room is barren and nondescript, with only a few skeletons to keep you company.",
-                  RoomDirections="There are doors to the [N]orth and [W]est", RoomEnemy="none", RoomContents="none")
+RoomTwentyTwo = Room(room_number=22, room_description="This room is barren and nondescript, with only a few skeletons to keep you company.",
+                     room_directions="There are doors to the [N]orth and [W]est", room_enemy="none", room_contents="none")
 
-RoomTwentyThree = Room(RoomNumber=23, RoomDescription="As the door creaks open, you see a rift open aon the far side of the"
-                  "room. A horrifying figure emerges.", RoomDirections="There is a door to the [W]est",
-                  RoomEnemy="Dimensional Shambler", RoomContents="Ancient Spellbook")
+RoomTwentyThree = Room(room_number=23, room_description="As the door creaks open, you see a rift open aon the far side of the"
+                  "room. A horrifying figure emerges.", room_directions="There is a door to the [W]est",
+                       room_enemy="Dimensional Shambler", room_contents="Ancient Spellbook")
 
-RoomTwentyFour = Room(RoomNumber=24, RoomDescription="You see bare stone room, with a single Lesser Spawn on the far side.",
-                  RoomDirections="There are doors to the [S]outh and [W]est", RoomEnemy="Lesser Spawn", RoomContents="none")
+RoomTwentyFour = Room(room_number=24, room_description="You see bare stone room, with a single Lesser Spawn on the far side.",
+                      room_directions="There are doors to the [S]outh and [W]est", room_enemy="Lesser Spawn", room_contents="none")
 
-RoomTwentyFive = Room(RoomNumber=25,  RoomDescription="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered"
+RoomTwentyFive = Room(room_number=25, room_description="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered"
                    " flasks litter the floor. It appears to be an ancient alchemical storeroom",
-                   RoomDirections="There are doors to the [N]orth and [W]est", RoomEnemy="none", RoomContents="Health Potion")
-RoomTwentySix = Room(RoomNumber=26, RoomDescription=Fore.RED + Style.BRIGHT + Back.RED +  """
+                      room_directions="There are doors to the [N]orth and [W]est", room_enemy="none", room_contents="Health Potion")
+RoomTwentySix = Room(room_number=26, room_description=Fore.RED + Style.BRIGHT + Back.RED + """
 
                                         You find yourself in the endless abyss
 
                                         THE AVATAR OF NYARLATHOTEP HAS AWOKEN
 
 """ + Style.RESET_ALL,
-                     RoomDirections=Fore.WHITE + "There are no doors, there is no escape. Defeat your enemy.",
-                     RoomEnemy="unspeakable sight", RoomContents="None")
+                     room_directions=Fore.WHITE + "There are no doors, there is no escape. Defeat your enemy.",
+                     room_enemy="unspeakable sight", room_contents="None")
 
 
 # Maps
@@ -444,7 +442,7 @@ rooms_cleared = {}
 
 # Player object
 
-player = Player(PlayerHealth=100, PlayerSanity=100, PlayerMana=100, player_speed=random.randint(45, 100),
+player = Player(PlayerHealth=999, PlayerSanity=999, PlayerMana=999, player_speed=random.randint(45, 100),
                 PlayerLocation=RoomThirteen, DamageDone=0, DamageTaken=0, AmountHealed=0, SanityLost=0, Score=0)
 
 # Three main functions essential to game operation. Main() is the function that changes the rooms, Game() is the
@@ -553,16 +551,17 @@ def PerformAction():
         ActionInput = input(Fore.WHITE + "[i]nspect inventory, [u]se item, [v]iew map, or [c]ontinue?: ")
         if ActionInput.lower() == "i":
             inventory.InspectInventory()
-            ContinueChoice = input("Anything else? Y/N: ")
-            if ContinueChoice.upper() == "Y":
-                continue
-            if ContinueChoice.upper() == "N":
-                break
-            else:
-                print("Choose Y or N.")
-                continue
+            while True:
+                ContinueChoice = input("Anything else? Y/N: ")
+                if ContinueChoice.upper() == "Y":
+                    break  # go back to the loop for another action
+                elif ContinueChoice.upper() == "N":
+                    return  # exit the PerformAction function
+                else:
+                    print("Choose Y or N.")  # if invalid input, prompt again
+                    continue
 
-        if ActionInput.lower() == "u":
+        elif ActionInput.lower() == "u":
             inventory.InspectInventory()
             ChooseItem = input("Select usable item: ")
             if ChooseItem.lower() == "health potion" and Health_Potion in inventory.items:
@@ -571,40 +570,42 @@ def PerformAction():
                     player.PlayerHealth = 100
                 print(Fore.WHITE + "Your health is now " + str(player.PlayerHealth))
                 Inventory.drop_item(inventory, Health_Potion)
-                ContinueChoice = input(Fore.WHITE + "Anything else? Y/N: ")
-                if ContinueChoice.upper() == "Y":
-                    continue
-                if ContinueChoice.upper() == "N":
-                    break
-                else:
-                    print("Choose Y or N.")
-                    continue
+                while True:
+                    ContinueChoice = input(Fore.WHITE + "Anything else? Y/N: ")
+                    if ContinueChoice.upper() == "Y":
+                        break
+                    elif ContinueChoice.upper() == "N":
+                        return  # exit the PerformAction function
+                    else:
+                        print("Choose Y or N.")  # if invalid input, prompt again
+                        continue
 
             elif ChooseItem.lower() == "health potion" and Health_Potion not in inventory.items:
-                print("Choose a usuable item.")
-                continue
-            if ChooseItem.lower() == "mana potion" and Mana_Potion in inventory.items:
+                print("Choose a usable item.")
+                continue  # repeat the loop to prompt again
+            elif ChooseItem.lower() == "mana potion" and Mana_Potion in inventory.items:
                 player.PlayerMana = player.PlayerMana + Mana_Potion.ItemHeal
                 if player.PlayerMana > 100:
                     player.PlayerMana = 100
                 print(Fore.WHITE + "Your Mana is now " + str(player.PlayerMana))
                 Inventory.drop_item(inventory, Mana_Potion)
-                ContinueChoice = input(Fore.WHITE + "Anything else? Y/N: ")
-                if ContinueChoice.upper() == "Y":
-                    continue
-                if ContinueChoice.upper() == "N":
-                    break
-                else:
-                    print("Choose Y or N.")
-                    continue
+                while True:
+                    ContinueChoice = input(Fore.WHITE + "Anything else? Y/N: ")
+                    if ContinueChoice.upper() == "Y":
+                        break
+                    elif ContinueChoice.upper() == "N":
+                        return  # exit the PerformAction function
+                    else:
+                        print("Choose Y or N.")  # if invalid input, prompt again
+                        continue
             elif ChooseItem.lower() == "mana potion" and Mana_Potion not in inventory.items:
-                print("Choose a usuable item.")
-                continue
+                print("Choose a usable item.")
+                continue  # repeat the loop to prompt again
             else:
-                print(Fore.YELLOW + "Choose a usuable item.")
-                continue
+                print(Fore.YELLOW + "Choose a usable item.")
+                continue  # repeat the loop to prompt again
 
-        if ActionInput.lower() == "view map":
+        elif ActionInput.lower() == "v":
             print(tabulate.tabulate(game_map, tablefmt="fancy_grid"))
             print(Fore.LIGHTWHITE_EX + """
               N
@@ -612,13 +613,23 @@ def PerformAction():
               S
             """)
             print(Fore.YELLOW + "You are in room " + str(player.PlayerLocation))
-            ContinueChoice = input(Fore.WHITE + "Anything else? Y/N: ")
-            if ContinueChoice.upper() == "Y":
-                continue
-            if ContinueChoice.upper() == "N":
-                break
-        if ActionInput.lower() == "continue":
-            break
+            while True:
+                ContinueChoice = input(Fore.WHITE + "Anything else? Y/N: ")
+                if ContinueChoice.upper() == "Y":
+                    break  # go back to the loop for another action
+                elif ContinueChoice.upper() == "N":
+                    return  # exit the PerformAction function
+                else:
+                    print("Choose Y or N.")  # if invalid input, prompt again
+                    continue
+
+        elif ActionInput.lower() == "c":
+            break  # exit the PerformAction function
+
+        else:
+            print("Invalid input, try again.")  # Prompt again if input is invalid
+            continue
+
 
 
 #
@@ -631,7 +642,7 @@ def RoomOneCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomOne.LocationCheck()
+        RoomOne.location_check()
         while True:
             ItemPickup = input("Pick up the item? Y/N: ")
             if ItemPickup.upper() == "Y":
@@ -642,12 +653,12 @@ def RoomOneCode():
                 break
         rooms_cleared['RoomOne'] = True
         PerformAction()
-        RoomOne.PrintDirections()
+        RoomOne.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomOne.PrintDirections()
+        RoomOne.print_directions()
         Main()
 
 
@@ -658,7 +669,7 @@ def RoomTwoCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomTwo.LocationCheck()
+        RoomTwo.location_check()
         Golem.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -847,13 +858,13 @@ def RoomTwoCode():
                         if player.PlayerHealth > 0:
                             player_turn = True
         rooms_cleared['RoomTwo'] = True
-        RoomTwo.PrintDirections()
+        RoomTwo.print_directions()
         PerformAction()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomTwo.PrintDirections()
+        RoomTwo.print_directions()
         Main()
 
 
@@ -863,7 +874,7 @@ def RoomThreeCode():
             player.PlayerSanity = player.PlayerSanity + 5
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
-        RoomThree.LocationCheck()
+        RoomThree.location_check()
         HuntingHorror.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -1102,12 +1113,12 @@ def RoomThreeCode():
                                 player_turn = True
         rooms_cleared['RoomThree'] = True
         PerformAction()
-        RoomThree.PrintDirections()
+        RoomThree.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomThree.PrintDirections()
+        RoomThree.print_directions()
         Main()
 
 
@@ -1118,7 +1129,7 @@ def RoomFourCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomFour.LocationCheck()
+        RoomFour.location_check()
         while True:
             ItemPickup = input(Fore.WHITE + "Pick up the item? Y/N: ")
             if ItemPickup.upper() == "Y":
@@ -1129,12 +1140,12 @@ def RoomFourCode():
                 break
         rooms_cleared['RoomFour'] = True
         PerformAction()
-        RoomFour.PrintDirections()
+        RoomFour.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomFour.PrintDirections()
+        RoomFour.print_directions()
         Main()
 
 
@@ -1145,7 +1156,7 @@ def RoomFiveCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomFive.LocationCheck()
+        RoomFive.location_check()
         MoonBeast.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -1397,12 +1408,12 @@ def RoomFiveCode():
                                 player_turn = True
         rooms_cleared['RoomFive'] = True
         PerformAction()
-        RoomThree.PrintDirections()
+        RoomThree.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomThree.PrintDirections()
+        RoomThree.print_directions()
         Main()
 
 
@@ -1414,14 +1425,14 @@ def RoomSixCode():
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before")
         rooms_cleared['RoomSix'] = True
-        RoomSix.LocationCheck()
+        RoomSix.location_check()
         PerformAction()
-        RoomSix.PrintDirections()
+        RoomSix.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it""")
         PerformAction()
-        RoomSix.PrintDirections()
+        RoomSix.print_directions()
         Main()
 
 
@@ -1432,7 +1443,7 @@ def RoomSevenCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before")
-        RoomSeven.LocationCheck()
+        RoomSeven.location_check()
         Shoggoth.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -1681,12 +1692,12 @@ def RoomSevenCode():
                                 player_turn = True
         rooms_cleared['RoomSeven'] = True
         PerformAction()
-        RoomSeven.PrintDirections()
+        RoomSeven.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomSeven.PrintDirections()
+        RoomSeven.print_directions()
         Main()
 
 
@@ -1697,7 +1708,7 @@ def RoomEightCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomEight.LocationCheck()
+        RoomEight.location_check()
         LesserSpawn.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -1880,12 +1891,12 @@ def RoomEightCode():
                             player_turn = True
         rooms_cleared['RoomEight'] = True
         PerformAction()
-        RoomEight.PrintDirections()
+        RoomEight.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomEight.PrintDirections()
+        RoomEight.print_directions()
         Main()
 
 
@@ -1897,14 +1908,14 @@ def RoomNineCode():
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before")
         rooms_cleared['RoomNine'] = True
-        RoomNine.LocationCheck()
+        RoomNine.location_check()
         PerformAction()
-        RoomNine.PrintDirections()
+        RoomNine.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it""")
         PerformAction()
-        RoomNine.PrintDirections()
+        RoomNine.print_directions()
         Main()
 
 
@@ -1915,7 +1926,7 @@ def RoomTenCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomTen.LocationCheck()
+        RoomTen.location_check()
         while True:
             ItemPickup = input("Pick up the item? Y/N: ")
             if ItemPickup.upper() == "Y":
@@ -1925,12 +1936,12 @@ def RoomTenCode():
             rooms_cleared['RoomTen'] = True
             break
         PerformAction()
-        RoomTen.PrintDirections()
+        RoomTen.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomTen.PrintDirections()
+        RoomTen.print_directions()
         Main()
 
 
@@ -1941,7 +1952,7 @@ def RoomElevenCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomEleven.LocationCheck()
+        RoomEleven.location_check()
         Golem.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -2127,12 +2138,12 @@ def RoomElevenCode():
                             player_turn = True
         rooms_cleared['RoomEleven'] = True
         PerformAction()
-        RoomEleven.PrintDirections()
+        RoomEleven.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomEleven.PrintDirections()
+        RoomEleven.print_directions()
         Main()
 
 
@@ -2143,7 +2154,7 @@ def RoomTwelveCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomTwelve.LocationCheck()
+        RoomTwelve.location_check()
         while True:
             ItemPickup = input("Pick up the item? Y/N: ")
             if ItemPickup.upper() == "Y":
@@ -2154,12 +2165,12 @@ def RoomTwelveCode():
                 break
         rooms_cleared['RoomTwelve'] = True
         PerformAction()
-        RoomTwelve.PrintDirections()
+        RoomTwelve.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomTwelve.PrintDirections()
+        RoomTwelve.print_directions()
         Main()
 
 
@@ -2171,9 +2182,9 @@ def RoomThirteenCode():
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
         rooms_cleared['RoomThirteen'] = True
-    RoomThirteen.LocationCheck()
+    RoomThirteen.location_check()
     PerformAction()
-    RoomThirteen.PrintDirections()
+    RoomThirteen.print_directions()
     Main()
 
 
@@ -2184,7 +2195,7 @@ def RoomFourteenCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomFourteen.LocationCheck()
+        RoomFourteen.location_check()
         Golem.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -2369,12 +2380,12 @@ def RoomFourteenCode():
                             player_turn = True
         rooms_cleared['RoomFourteen'] = True
         PerformAction()
-        RoomFourteen.PrintDirections()
+        RoomFourteen.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomFourteen.PrintDirections()
+        RoomFourteen.print_directions()
         Main()
 
 
@@ -2386,7 +2397,7 @@ def RoomFifteenCode():
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
             rooms_cleared['RoomFifteen'] = True
-    RoomFifteen.LocationCheck()
+    RoomFifteen.location_check()
     print(Fore.WHITE + "You approach the pedestal, small flecks of cosmic energy seem to radiate off of the key.")
     if Sun_Talisman or Ancient_Scroll not in inventory.items:
         print(Fore.YELLOW + """You reach for the key, but a force demands you hesitate... visions of a sun and a scroll
@@ -2425,14 +2436,14 @@ def RoomSixteenCode():
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before")
         rooms_cleared['RoomSixteen'] = True
-        RoomSixteen.LocationCheck()
+        RoomSixteen.location_check()
         PerformAction()
-        RoomSixteen.PrintDirections()
+        RoomSixteen.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it""")
         PerformAction()
-        RoomSixteen.PrintDirections()
+        RoomSixteen.print_directions()
         Main()
 
 
@@ -2443,7 +2454,7 @@ def RoomSeventeenCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomSeventeen.LocationCheck()
+        RoomSeventeen.location_check()
         LesserSpawn.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -2626,12 +2637,12 @@ def RoomSeventeenCode():
                             player_turn = True
         rooms_cleared['RoomSeventeen'] = True
         PerformAction()
-        RoomSeventeen.PrintDirections()
+        RoomSeventeen.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomSeventeen.PrintDirections()
+        RoomSeventeen.print_directions()
         Main()
 
 
@@ -2642,7 +2653,7 @@ def RoomEighteenCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomEighteen.LocationCheck()
+        RoomEighteen.location_check()
         Golem.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -2834,12 +2845,12 @@ def RoomEighteenCode():
             print(Fore.WHITE + "You leave the item where it is.")
         rooms_cleared['RoomEighteen'] = True
         PerformAction()
-        RoomEighteen.PrintDirections()
+        RoomEighteen.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomEighteen.PrintDirections()
+        RoomEighteen.print_directions()
         Main()
 
 
@@ -2851,14 +2862,14 @@ def RoomNineteenCode():
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before")
         rooms_cleared['RoomNineteen'] = True
-        RoomNineteen.LocationCheck()
+        RoomNineteen.location_check()
         PerformAction()
-        RoomNineteen.PrintDirections()
+        RoomNineteen.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it""")
         PerformAction()
-        RoomNineteen.PrintDirections()
+        RoomNineteen.print_directions()
         Main()
 
 
@@ -2869,7 +2880,7 @@ def RoomTwentyCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomTwenty.LocationCheck()
+        RoomTwenty.location_check()
         LesserSpawn.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -3052,12 +3063,12 @@ def RoomTwentyCode():
                             player_turn = True
         rooms_cleared['RoomTwenty'] = True
         PerformAction()
-        RoomTwenty.PrintDirections()
+        RoomTwenty.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomTwenty.PrintDirections()
+        RoomTwenty.print_directions()
         Main()
 
 
@@ -3068,7 +3079,7 @@ def RoomTwentyOneCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before")
-        RoomTwentyOne.LocationCheck()
+        RoomTwentyOne.location_check()
         FlyingPolyp.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -3320,12 +3331,12 @@ def RoomTwentyOneCode():
                                 player_turn = True
         rooms_cleared['RoomTwentyOne'] = True
         PerformAction()
-        RoomTwentyOne.PrintDirections()
+        RoomTwentyOne.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomTwentyOne.PrintDirections()
+        RoomTwentyOne.print_directions()
         Main()
 
 
@@ -3337,14 +3348,14 @@ def RoomTwentyTwoCode():
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before")
         rooms_cleared['RoomTwentyTwo'] = True
-        RoomTwentyTwo.LocationCheck()
+        RoomTwentyTwo.location_check()
         PerformAction()
-        RoomTwentyTwo.PrintDirections()
+        RoomTwentyTwo.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it""")
         PerformAction()
-        RoomTwentyTwo.PrintDirections()
+        RoomTwentyTwo.print_directions()
         Main()
 
 
@@ -3355,7 +3366,7 @@ def RoomTwentyThreeCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before")
-        RoomTwentyThree.LocationCheck()
+        RoomTwentyThree.location_check()
         DimensionalShambler.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -3404,7 +3415,7 @@ def RoomTwentyThreeCode():
                                 flames from the abyss, searing the target's soul.
                                 """)
                                 print(Fore.YELLOW + "You have learned the spell Void Flame!")
-                                player_moves["Void Flame"] = (35, 50)
+                                player_moves["Void Flame"] = (35, 50)(35, 50)
                             if ItemPickup.upper() == "N":
                                 ItemConfirmation = input(Fore.WHITE + "Are you sure you wish to leave the item "
                                                                       "here? Y/N: ")
@@ -3576,12 +3587,12 @@ def RoomTwentyThreeCode():
                                 player_turn = True
         rooms_cleared['RoomTwentyThree'] = True
         PerformAction()
-        RoomTwentyThree.PrintDirections()
+        RoomTwentyThree.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomTwentyThree.PrintDirections()
+        RoomTwentyThree.print_directions()
         Main()
 
 
@@ -3592,7 +3603,7 @@ def RoomTwentyFourCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomTwenty.LocationCheck()
+        RoomTwenty.location_check()
         LesserSpawn.MiniBossAppears()
         CombatOngoing = True
         while CombatOngoing:  # combat starts
@@ -3775,12 +3786,12 @@ def RoomTwentyFourCode():
                             player_turn = True
         rooms_cleared['RoomTwentyFour'] = True
         PerformAction()
-        RoomTwentyFour.PrintDirections()
+        RoomTwentyFour.print_directions()
         Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomTwentyFour.PrintDirections()
+        RoomTwentyFour.print_directions()
         Main()
 
 
@@ -3791,7 +3802,7 @@ def RoomTwentyFiveCode():
             if player.PlayerSanity > 100:
                 player.PlayerSanity = 100
             print(Fore.GREEN + "Your mind feels a little more stable than before...")
-        RoomTwentyFive.LocationCheck()
+        RoomTwentyFive.location_check()
         while True:
             ItemPickup = input(Fore.WHITE + "Pick up the item? Y/N: ")
             if ItemPickup.upper() == "Y":
@@ -3800,12 +3811,12 @@ def RoomTwentyFiveCode():
                 print("You choose to leave the item where it is.")
             rooms_cleared['RoomTwentyFive'] = True
             PerformAction()
-            RoomTwentyFive.PrintDirections()
+            RoomTwentyFive.print_directions()
             Main()
     else:
         print(Fore.WHITE + """This room is the same as when you left it.""")
         PerformAction()
-        RoomTwentyFive.PrintDirections()
+        RoomTwentyFive.print_directions()
 
 
 def RoomTwentySixCode():
@@ -3834,7 +3845,7 @@ def RoomTwentySixCode():
     print(Fore.RED + """
           You are stricken with hopelessness. An unspeakable Servant of The Nameless Mist has appeared. 
                     It is a being of immense and terrifying power. It is unfathomably fast.""")
-    print(Fore.YELLOW + "Your speed is a mere: ")+ str(player.player_speed)
+    print(Fore.YELLOW + "Your speed is a mere: " + str(player.player_speed))
     CombatOngoing = True
     while CombatOngoing:  # combat starts
         if Boss.speed > player.player_speed:
@@ -4070,7 +4081,7 @@ while True:
 player.PlayerLocation = RoomThirteen.RoomNumber
 print(tabulate.tabulate(game_map, tablefmt="fancy_grid"))
 print(Fore.YELLOW + "You are in room " + str(player.PlayerLocation))
-RoomThirteen.LocationCheck()
-RoomThirteen.PrintDirections()
+RoomThirteen.location_check()
+RoomThirteen.print_directions()
 Main()
 Game()
