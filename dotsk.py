@@ -24,7 +24,6 @@ from time import sleep
 # -----------------------
 # Important rooms: 3 (Miniboss), 5 (Miniboss), 7 (Miniboss), 13 (START), 15 (Key Item), 21 (Miniboss), 23 (Miniboss)
 # TODO: Room code
-# TODOL: You automatically learn pure of mind for some reason, figure it out later
 
 
 def main():
@@ -36,6 +35,7 @@ def main():
         direction = input("Enter a direction (n/s/e/w): ").lower()
         os.system('cls' if os.name == 'nt' else 'clear')
         player.move(direction, game_map)
+
 
 if __name__ == "__main__":
     main()

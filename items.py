@@ -63,7 +63,7 @@ ancient_scroll = Item(
     item_heal=0,
     stat_boost=0,
     teaches_move=moves.pure_of_mind,
-    pickup_str=print(f"\n\n{Fore.GREEN}Madness has claimed many in this dark place, yet before it took its toll, a long-dead sorcerer had penned his final spell—a hopeful chant to push back the darkness of the dungeon.\n{Style.RESET_ALL}{Fore.YELLOW}You have learned the spell 'Pure of Mind'!{Style.RESET_ALL}\n\n")
+    pickup_str=f"\n\n{Fore.GREEN}Madness has claimed many in this dark place, yet before it took its toll, a long-dead sorcerer had penned his final spell—a hopeful chant to push back the darkness of the dungeon.\n{Style.RESET_ALL}{Fore.YELLOW}You have learned the spell 'Pure of Mind'!{Style.RESET_ALL}\n\n"
 )
 
 ancient_spellbook = Item(
