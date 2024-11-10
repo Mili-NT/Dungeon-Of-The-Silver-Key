@@ -118,6 +118,7 @@ class Player:
         else:
             enemy.health -= move_effect
         print(self.format_move_string(move, move_effect))
+
     def enemy_turn(self, enemy):
         move = random.choice(enemy.moves)
         move_effect = random.randint(*move.damage_range)
@@ -135,9 +136,10 @@ class Player:
         else:
             self.player_health -= move_effect
         print(self.format_move_string(move, move_effect))
+
+
     def combat(self, enemy):
         # Determine who takes the first turn based on speed
-        victory = False
         player_turn = self.player_speed >= enemy.speed  # Player goes first if speeds are equal
 
         while self.player_health > 0 and enemy.health > 0:
@@ -153,10 +155,11 @@ class Player:
         # End of combat check
         if self.player_health <= 0:
             print(f"{Fore.RED}You have been defeated!{Style.RESET_ALL}")
+            self.game_over()
+        elif self.player_sanity <= 0:
+            self.game_over(sanity_loss=True)
         elif enemy.health <= 0:
             print(f"{Fore.GREEN}The enemy has been defeated!{Style.RESET_ALL}")
-            victory = True
-        return victory
 
 
 class Move:
