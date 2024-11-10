@@ -1,8 +1,13 @@
 from colorama import Fore, Style
-from six import moves
 
-from classes import Move
-
+class Move:
+    def __init__(self, name, damage_range, target, move_str, cost=0, attributes=None):
+        self.name = name
+        self.damage_range = damage_range
+        self.target = target
+        self.move_str = move_str
+        self.cost = cost
+        self.attributes = attributes
 # Player Moves
 thrust = Move(
     name="thrust",

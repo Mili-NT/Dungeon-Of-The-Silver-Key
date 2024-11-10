@@ -170,35 +170,6 @@ class Player:
             self.game_over(sanity_loss=True)
         elif enemy.health <= 0:
             print(f"{Fore.GREEN}The enemy has been defeated!{Style.RESET_ALL}")
-
-
-class Move:
-    def __init__(self, name, damage_range, target, move_str, cost=0, attributes=None):
-        self.name = name
-        self.damage_range = damage_range
-        self.target = target
-        self.move_str = move_str
-        self.cost = cost
-        self.attributes = attributes
-class Item:
-    def __init__(self, item_name, item_description, item_damage, item_heal, stat_boost, teaches_move=None, pickup_str=None):
-        self.item_name = item_name
-        self.item_description = item_description
-        self.item_damage = item_damage
-        self.item_heal = item_heal
-        self.stat_boost = stat_boost
-        self.teaches_move = teaches_move
-        self.pickup_str = pickup_str
-
-    def inspect_item(self):
-        print(f"This item is a {self.item_name}. It is {self.item_description}.")
-        if self.item_damage > 0:
-            print(f"This item does {self.item_damage} damage.")
-        if self.item_heal > 0:
-            print(f"This item restores {self.item_heal} health.")
-        if self.stat_boost > 0:
-            print(f"This item boosts your stats by {self.stat_boost}.")
-
 class Inventory:
     def __init__(self):
         self.items = {}
@@ -224,14 +195,6 @@ class Inventory:
                 print(f"This item restores {item.item_heal} health.")
             if item.stat_boost > 0:
                 print(f"This item boosts your stats by {item.stat_boost}.")
-class Enemy:
-    def __init__(self, adjective, name, description, speed, health, moves):
-        self.adjective = adjective
-        self.name = name
-        self.description = description
-        self.speed = speed
-        self.health = health
-        self.moves = moves
 class GameMap:
     def __init__(self):
         # Maps

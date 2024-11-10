@@ -1,5 +1,6 @@
+import os
 import random
-from classes import Player, GameMap
+from game import Player, GameMap
 from colorama import Fore, Style, Back
 from pyfiglet import Figlet
 import tabulate
@@ -32,6 +33,7 @@ def main():
     while True:
         game_map.display(player.player_location)
         direction = input("Enter a direction (n/s/e/w): ").lower()
+        os.system('cls' if os.name == 'nt' else 'clear')
         player.move(direction, game_map)
 
 if __name__ == "__main__":

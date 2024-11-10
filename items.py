@@ -1,7 +1,24 @@
 from colorama import Fore, Style
-
 import moves
-from classes import Item
+
+class Item:
+    def __init__(self, item_name, item_description, item_damage, item_heal, stat_boost, teaches_move=None, pickup_str=None):
+        self.item_name = item_name
+        self.item_description = item_description
+        self.item_damage = item_damage
+        self.item_heal = item_heal
+        self.stat_boost = stat_boost
+        self.teaches_move = teaches_move
+        self.pickup_str = pickup_str
+
+    def inspect_item(self):
+        print(f"This item is a {self.item_name}. It is {self.item_description}.")
+        if self.item_damage > 0:
+            print(f"This item does {self.item_damage} damage.")
+        if self.item_heal > 0:
+            print(f"This item restores {self.item_heal} health.")
+        if self.stat_boost > 0:
+            print(f"This item boosts your stats by {self.stat_boost}.")
 
 ornate_tome = Item(
     item_name="Ornate Tome",
@@ -20,7 +37,7 @@ cursed_tome = Item(
     item_heal=0,
     stat_boost=0,
     teaches_move=moves.call_of_madness,
-    pickup_str=f"{Fore.GREEN}The book writhes under your touch, as if alive. A closer look at the books surface chills your blood.\n{Style.RESET_ALL}{Fore.YELLOW}You have learned call of madness!\n{Style.RESET_ALL}"
+    pickup_str=f"{Fore.GREEN}The book writhes under your touch, as if alive. A closer look at the book's surface chills your blood.\n{Style.RESET_ALL}{Fore.YELLOW}You have learned call of madness!\n{Style.RESET_ALL}"
 )
 
 health_potion = Item(

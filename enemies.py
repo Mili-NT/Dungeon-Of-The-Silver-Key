@@ -1,6 +1,16 @@
 import random
 import moves
-from classes import Enemy
+
+# TODO: drops items
+
+class Enemy:
+    def __init__(self, adjective, name, description, speed, health, moves):
+        self.adjective = adjective
+        self.name = name
+        self.description = description
+        self.speed = speed
+        self.health = health
+        self.moves = moves
 
 # Minibosses
 dimensional_shambler = Enemy(
