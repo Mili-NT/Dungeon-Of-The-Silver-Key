@@ -84,7 +84,8 @@ void_flame = Move(
     move_str=f"{Fore.GREEN}You lift a hand and chant the spell. A torrent of invisible flame pours forth from the Abyss, dealing %dmg damage.{Style.RESET_ALL}",
     cost=30,
     attributes={
-        'spell': True
+        "restore": False,
+        "spell": True
     }
 )
 # Enemy Moves

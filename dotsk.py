@@ -25,6 +25,8 @@ from game import Player, GameMap
 # TODO: Score should floor at 0
 # TODO: Enemy sanity draining string formatting isnt working
 # TODO: More adjustments to healing rates needed.
+# TODO: Lesser spawn in room 17 autodefeated
+# TODO: Golem in room 14 autodefeated
 
 def main():
     player = Player(player_location=13)
