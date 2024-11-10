@@ -20,8 +20,7 @@ from game import Player, GameMap
 # TODO: Room code
 # TODO: Item pickup in enter_room
 # TODO: Inventory access
-# TODO: Score should floor at 0
-# TODO: Enemy sanity draining string formatting isnt working
+# TODO: Enemy sanity draining attacks and string formatting
 # TODO: More adjustments to healing rates needed.
 # TODO: Lesser spawn in room 17 autodefeated (multiple rooms)
 # TODO: Golem in room 14 autodefeated

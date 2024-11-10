@@ -47,6 +47,8 @@ class Player:
     def calc_score(self):
         positives = self.damage_done + self.amount_healed
         negatives = self.damage_taken + self.sanity_lost
+        # yeah that's readable
+        total = 0 if (positives - negatives) == 0 else positives + negatives
         self.player_score = positives - negatives
 
     def add_item_to_inventory(self, item):
