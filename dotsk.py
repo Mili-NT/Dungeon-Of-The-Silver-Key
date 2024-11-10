@@ -24,7 +24,11 @@ from time import sleep
 # -----------------------
 # Important rooms: 3 (Miniboss), 5 (Miniboss), 7 (Miniboss), 13 (START), 15 (Key Item), 21 (Miniboss), 23 (Miniboss)
 # TODO: Room code
+# TODO: Item pickup in enter_room
 # TODO: Inventory access
+# TODO: Casting greater heal ends the game
+# TODO: Going west from room 14 leads to room 9, going west from room 9 leads to room 14
+# TODO: Print stats in battle
 
 def main():
     player = Player(player_location=13)

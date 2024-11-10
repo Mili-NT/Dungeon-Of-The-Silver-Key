@@ -10,7 +10,7 @@ class Enemy:
         self.description = description
         self.speed = speed
         self.health = health
-        self.moves = enemy_moves
+        self.enemy_moves = enemy_moves
 
 # Minibosses
 dimensional_shambler = Enemy(

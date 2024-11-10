@@ -14,12 +14,20 @@ thrust = Move(
     damage_range=(25, 30),
     target="health",
     move_str=f"{Fore.GREEN}You deftly weave between the enemy's attacks, giving your sword a powerful forward thrust, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 player_slash = Move(
     name="slash",
-    damage_range=(10, 65),
+    damage_range=(5, 55),
     target="health",
     move_str=f"{Fore.GREEN}With a prayer, you swing your sword in a recklessly wide arc, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 heal = Move(
     name="heal",
@@ -75,7 +83,9 @@ void_flame = Move(
     target="health",
     move_str=f"{Fore.GREEN}You lift a hand and chant the spell. A torrent of invisible flame pours forth from the Abyss, dealing %dmg damage.{Style.RESET_ALL}",
     cost=30,
-    attributes={'spell': True}
+    attributes={
+        'spell': True
+    }
 )
 # Enemy Moves
 
@@ -84,98 +94,162 @@ claw = Move(
     damage_range=(20, 30),
     target="health",
     move_str=f"{Fore.RED}%enemy slashes at you with sharp claws, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 tear = Move(
     name="tear",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy tears into your flesh, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 unsettling_gaze = Move(
     name="unsettling gaze",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy fixes its gaze upon you and a strange force rips your flesh, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 hypnotic_gaze = Move(
     name="hypnotic gaze",
     damage_range=(10, 10),
     target="sanity",
     move_str=f"{Fore.RED}%enemy affixes you with a hypnotic gaze... you feel your mind slipping away (- %sanity sanity).{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 bite = Move(
     name="bite",
     damage_range=(20, 30),
     target="health",
     move_str=f"{Fore.RED}%enemy bites down hard, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 snap = Move(
     name="snap",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy snaps at you with a gnarled bite, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 mutilate = Move(
     name="mutilate",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy mutilates you with a savage strike, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 dread_aura = Move(
     name="dread aura",
     damage_range=(10, 10),
     target="sanity",
     move_str=f"{Fore.RED}%enemy exudes an aura of dread, you feel your mind slipping away (- %sanity sanity).{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 cosmic_wind = Move(
     name="cosmic wind",
     damage_range=(20, 30),
     target="health",
     move_str=f"{Fore.RED}%enemy buffets you with eldritch winds, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 tentacle_swipe = Move(
     name="tentacle swipe",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy strikes with its massive tentacles, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 foul_affliction = Move(
     name="foul affliction",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy afflicts you with a foul curse, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 unnerving_aura = Move(
     name="unnerving aura",
     damage_range=(15, 15),
     target="sanity",
     move_str=f"{Fore.RED}%enemy gives off an unspeakable aura... your mind begins to quiver (- %sanity sanity).{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 strangle = Move(
     name="strangle",
     damage_range=(20, 30),
     target="health",
     move_str=f"{Fore.RED}%enemy strangles you with crushing force, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 curse_of_the_stars = Move(
     name="curse of the stars",
     damage_range=(20, 25),
     target="health",
-    move_str=f"{Fore.RED}%enemy invokes a curse most foul, calling forth a void of twisting stars, dealing %dmg damage.{Style.RESET_ALL}"
+    move_str=f"{Fore.RED}%enemy invokes a curse most foul, calling forth a void of twisting stars, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 
 eldritch_fire = Move(
     name="eldritch fire",
     damage_range=(25, 30),
     target="health",
-    move_str=f"{Fore.RED}%enemy unleashes a torrent of accursed flame, dealing %dmg damage.{Style.RESET_ALL}"
+    move_str=f"{Fore.RED}%enemy unleashes a torrent of accursed flame, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 
 cursed_blow = Move(
     name="cursed blow",
     damage_range=(35, 40),
     target="health",
-    move_str=f"{Fore.RED}%enemy invades your very being, dealing %dmg damage.{Style.RESET_ALL}"
+    move_str=f"{Fore.RED}%enemy invades your very being, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 
 cosmic_vampirism = Move(
@@ -194,58 +268,98 @@ gaze_of_the_abyss = Move(
     damage_range=(30, 30),
     target="sanity",
     move_str=f"{Fore.RED}Your eyes are drawn to the endless abyss. You feel it gazing back... your sanity is under assault (- %sanity sanity).{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 weak_slash = Move(
     name="weak slash",
     damage_range=(5, 10),
     target="health",
-    move_str=f"{Fore.RED}%enemy weakly slashes at you, dealing %dmg damage.{Style.RESET_ALL}"
+    move_str=f"{Fore.RED}%enemy weakly slashes at you, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 punch = Move(
     name="punch",
     damage_range=(10, 15),
     target="health",
     move_str=f"{Fore.RED}%enemy throws a strong punch, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 smash = Move(
     name="smash",
     damage_range=(10, 20),
     target="health",
     move_str=f"{Fore.RED}%enemy smashes you with their fist, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 stomp = Move(
     name="stomp",
     damage_range=(10, 15),
     target="health",
     move_str=f"{Fore.RED}%enemy stomps at you with a heavy foot, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 pummel = Move(
     name="pummel",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy pummels you with its appendage, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 engulf = Move(
     name="engulf",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy engulfs you in its gelatinous form, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 slash = Move(
     name="slash",
     damage_range=(30, 40),
     target="health",
     move_str=f"{Fore.RED}%enemy slashes at you viciously, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 eviscerate = Move(
     name="eviscerate",
     damage_range=(30, 35),
     target="health",
     move_str=f"{Fore.RED}%enemy eviscerates you with a terrible blow, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )
 horrific_wail = Move(
     name="horrific_wail",
     damage_range=(20, 20),
     target="sanity",
-    move_str=f"{Fore.RED}%enemy lets loose a horrific wail... you feel your sanity slipping (-%sanity sanity).{Style.RESET_ALL}."
+    move_str=f"{Fore.RED}%enemy lets loose a horrific wail... you feel your sanity slipping (-%sanity sanity).{Style.RESET_ALL}.",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
 )

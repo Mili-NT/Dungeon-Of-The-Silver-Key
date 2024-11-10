@@ -63,8 +63,10 @@ class Player:
             print(f"{Fore.WHITE}This room is the same as when you left it.{Style.RESET_ALL}")
         else:
             print(room.room_description)
-            if room.
-            input()
+            if room.room_enemy:
+                self.combat(room.room_enemy)
+            if room.room_contents:
+                self.add_item_to_inventory(room.room_contents)
             game_map.room_map[room.room_number].isCleared = True
 
 
@@ -81,12 +83,13 @@ class Player:
             print(f"{Fore.YELLOW}There is no door in that direction.")
             print(f"{Fore.RESET}")
 
-    def format_move_string(self, move, move_effect):
+    def format_move_string(self, move, move_effect, enemy_name=None):
         """
         This function replaces placeholders in the move_str with actual values:
         - %dmg -> move_effect (damage dealt)
         - %sanity -> self.player_sanity (current sanity)
         - %mana -> self.player_mana (current mana)
+        - %enemy -> attacking enemy
         """
         move_str = move.move_str  # Get the move's descriptive string
 
@@ -99,6 +102,7 @@ class Player:
         # Replace %mana with the player's current mana
         move_str = move_str.replace('%mana', str(self.player_mana))
 
+        move_str = move_str.replace('%enemy', str(enemy_name))
         return move_str
 
     def player_turn(self, enemy):
@@ -161,7 +165,7 @@ class Player:
                 enemy.health += move.cost
         else:
             self.player_health -= move_effect
-        print(self.format_move_string(move, move_effect))
+        print(self.format_move_string(move, move_effect, enemy.name))
 
     def combat(self, enemy):
         # Determine who takes the first turn based on speed
