@@ -20,7 +20,10 @@ from game import Player, GameMap
 # TODO: Room code
 # TODO: Item pickup in enter_room
 # TODO: Inventory access
-# TODO: Enemy sanity draining attacks and string formatting
+# TODO: Fixed the math issue behind enemy sanity drain, formatting string still needs work:
+# Turn 1: Player stats: 88 hp, 100 mana, 100 sanity.
+# Turn 2: Polyp uses unnerving_aura (15 sanity damage) -- Flying Polyp... (- 85 sanity).
+# Resulting stats: Player stats: 88 hp, 100 mana, 85 sanity.
 # TODO: More adjustments to healing rates needed.
 # TODO: Lesser spawn in room 17 autodefeated (multiple rooms)
 # TODO: Golem in room 14 autodefeated
