@@ -31,7 +31,7 @@ player_slash = Move(
 )
 heal = Move(
     name="heal",
-    damage_range=(25, 30),
+    damage_range=(35, 45),
     target="health",
     move_str=f"{Fore.GREEN}A warm light encompasses you and vigor flows back into your damaged limbs. You are healed for %dmg health.",
     cost=10,
@@ -43,7 +43,7 @@ heal = Move(
 )
 greater_heal = Move(
     name="greater heal",
-    damage_range=(50, 60),
+    damage_range=(55, 75),
     target="health",
     cost=30,
     move_str=f"{Fore.GREEN}A ray of divine light falls upon you, breathing life into your damaged form... you are healed for %dmg.{Style.RESET_ALL}",

@@ -1,12 +1,6 @@
 import os
-import random
+
 from game import Player, GameMap
-from colorama import Fore, Style, Back
-from pyfiglet import Figlet
-import tabulate
-from time import sleep
-
-
 
 #                                          Coded by Mili (Python 3.6.0, January 2019, Rewritten November 2024)
 #                                          Credits to H.P. Lovecraft and r/LearnPython
@@ -26,9 +20,11 @@ from time import sleep
 # TODO: Room code
 # TODO: Item pickup in enter_room
 # TODO: Inventory access
-# TODO: Casting greater heal ends the game
 # TODO: Going west from room 14 leads to room 9, going west from room 9 leads to room 14
-# TODO: Print stats in battle
+# TODO: Going east from room 9 leads to room 4
+# TODO: Score should floor at 0
+# TODO: Enemy sanity draining string formatting isnt working
+# TODO: More adjustments to healing rates needed.
 
 def main():
     player = Player(player_location=13)

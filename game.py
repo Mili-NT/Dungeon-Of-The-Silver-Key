@@ -133,19 +133,26 @@ class Player:
                     self.player_sanity -= move.cost
                     self.player_mana += move.cost
                 elif move.target == "health" and restore_target == "mana":
-                    self.player_health -= move.cost
-                    self.player_mana += move.cost
+                    self.player_health += move.cost
+                    self.player_mana -= move.cost
                 elif move.target == "mana" and restore_target == "sanity":
                     self.player_mana -= move.cost
                     self.player_sanity += move.cost
             else:
                 if restore_target == "sanity":
                     self.player_sanity += move_effect
+                    if self.player_sanity > 100:
+                        self.player_sanity = 100
                 elif restore_target == "health":
-                    self.player_health -= move_effect
+                    self.player_health += move_effect
+                    if self.player_health > 100:
+                        self.player_health = 100
                 elif restore_target == "mana":
                     self.player_mana += move_effect
+                    if self.player_mana > 100:
+                        self.player_mana = 100
         else:
+            self.damage_done += move_effect
             enemy.health -= move_effect
         print(self.format_move_string(move, move_effect))
 
@@ -155,16 +162,19 @@ class Player:
         if move.attributes["restore"]:
             restore_target = move.attributes["restore_target"]
             if move.target == "health" and restore_target == "health":
-                self.player_health -= move.cost
                 enemy.health += move.cost
             elif move.target == "mana" and restore_target == "health":
                 self.player_mana -= move.cost
                 enemy.health += move.cost
             elif move.target == "sanity" and restore_target == "health":
+                self.sanity_lost += move.cost
                 self.player_sanity -= move.cost
                 enemy.health += move.cost
         else:
+            self.damage_taken += move_effect
             self.player_health -= move_effect
+        if enemy.health <= 0:
+            enemy.health = 0
         print(self.format_move_string(move, move_effect, enemy.name))
 
     def combat(self, enemy):
@@ -172,6 +182,8 @@ class Player:
         player_turn = self.player_speed >= enemy.speed  # Player goes first if speeds are equal
 
         while self.player_health > 0 and enemy.health > 0:
+            print(f"{Fore.GREEN}Player stats: {self.player_health} hp, {self.player_mana} mana, {self.player_sanity} sanity.{Style.RESET_ALL}")
+            print(f"{Fore.RED}Enemy stats: {enemy.health} hp.{Style.RESET_ALL}\n")
             if player_turn:
                 # Player's turn
                 self.player_turn(enemy)
@@ -180,7 +192,6 @@ class Player:
                 # Enemy's turn
                 self.enemy_turn(enemy)
                 player_turn = True  # Switch to player's turn
-
         # End of combat check
         if self.player_health <= 0:
             print(f"{Fore.RED}You have been defeated!{Style.RESET_ALL}")
