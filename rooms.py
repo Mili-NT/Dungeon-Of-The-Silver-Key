@@ -62,7 +62,7 @@ RoomSix = Room(
 RoomSeven = Room(
     room_number=7,
     room_description=f"The room is empty, save for a lone pedestal holding an ancient scroll. {Fore.RED}Before you reach the pedestal, a thick tar-like liquid flows from the walls and amasses into a horrible shape.{Style.RESET_ALL}",
-    room_exits={'n': 6, 's': 8, 'e': 12, 'w': 6},
+    room_exits={'n': 6, 's': 8, 'e': 12, 'w': 2},
     room_enemy=enemies.shoggoth,
     room_contents=items.ancient_scroll
 )
@@ -97,7 +97,7 @@ RoomEleven = Room(
 RoomTwelve = Room(
     room_number=12,
     room_description=f"Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered flasks litter the floor. It appears to be an ancient alchemical storeroom.",
-    room_exits={'n': 11, 's': 13, 'e': 7, 'w': 17},
+    room_exits={'n': 11, 's': 13, 'e': 17, 'w': 7},
     room_contents=items.health_potion
 )
 
@@ -110,14 +110,14 @@ RoomThirteen = Room(
 RoomFourteen = Room(
     room_number=14,
     room_description=f"You see a bare stone room, {Fore.RED}with a single clay golem wandering on the far side.{Style.RESET_ALL}",
-    room_exits={'n': 13, 's': 15, 'e': 9, 'w': 9},
+    room_exits={'n': 13, 's': 15, 'e': 19, 'w': 9},
     room_enemy=enemies.golem,
 )
 # TODO: Rewrite room desc
 RoomFifteen = Room(
     room_number=15,
     room_description=f"This room is large and ornate, with carvings of every sort adorning the walls. In the center is a large pedestal with a single Silver Key laying upon it.",
-    room_exits={'n': 14, 'e': 20, 'w': 5},
+    room_exits={'n': 14, 'e': 20, 'w': 10},
     room_contents=items.silver_key
 )
 
@@ -130,7 +130,7 @@ RoomSixteen = Room(
 RoomSeventeen = Room(
     room_number=17,
     room_description=f"You see a bare stone room, {Fore.RED}with a single Lesser Spawn on the far side.{Style.RESET_ALL}",
-    room_exits={'n': 17, 's': 18, 'e': 22, 'w': 12},
+    room_exits={'n': 16, 's': 18, 'e': 22, 'w': 12},
     room_enemy=enemies.lesser_spawn,
 )
 
@@ -145,7 +145,7 @@ RoomEighteen = Room(
 RoomNineteen = Room(
     room_number=19,
     room_description=f"This room is barren and nondescript, with only a few skeletons to keep you company.",
-    room_exits={'n': 18, 's': 20, 'e': 14, 'w': 24},
+    room_exits={'n': 18, 's': 20, 'w': 14, 'e': 24},
 )
 
 RoomTwenty = Room(

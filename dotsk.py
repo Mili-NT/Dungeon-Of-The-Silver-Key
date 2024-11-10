@@ -20,12 +20,10 @@ from game import Player, GameMap
 # TODO: Room code
 # TODO: Item pickup in enter_room
 # TODO: Inventory access
-# TODO: Going west from room 14 leads to room 9, going west from room 9 leads to room 14
-# TODO: Going east from room 9 leads to room 4
 # TODO: Score should floor at 0
 # TODO: Enemy sanity draining string formatting isnt working
 # TODO: More adjustments to healing rates needed.
-# TODO: Lesser spawn in room 17 autodefeated
+# TODO: Lesser spawn in room 17 autodefeated (multiple rooms)
 # TODO: Golem in room 14 autodefeated
 
 def main():
