@@ -4,7 +4,7 @@ import items
 
 
 class Room:
-    def __init__(self, room_number, room_description, room_exits, room_enemy, room_contents, is_cleared=False):
+    def __init__(self, room_number, room_description, room_exits, room_enemy=None, room_contents=None, is_cleared=False):
         self.room_number = room_number
         self.room_description = room_description
         self.room_exits = room_exits
@@ -20,7 +20,6 @@ RoomOne = Room(
     room_number=1,
     room_description=f"Blast marks and dark stains litter the walls of this room. In the center lies a robed skeleton grasping a blue potion.",
     room_exits={'s': 2, 'e': 6},
-    room_enemy="none",
     room_contents=items.mana_potion
 )
 
@@ -29,7 +28,6 @@ RoomTwo = Room(
     room_description=f"A bare stone room, with a single clay golem wandering on the far side.",
     room_exits={'n': 1, 's': 3, 'e': 7},
     room_enemy=enemies.golem,
-    room_contents="none"
 )
 
 RoomThree = Room(
@@ -44,7 +42,6 @@ RoomFour = Room(
     room_number=4,
     room_description=f"Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered flasks litter the floor. It appears to be an ancient alchemical storeroom.",
     room_exits={'n': 3, 's': 5, 'e': 9},
-    room_enemy="none",
     room_contents=items.health_potion
 )
 
@@ -60,8 +57,6 @@ RoomSix = Room(
     room_number=6,
     room_description=f"This room is barren and nondescript, with only a few skeletons to keep you company.",
     room_exits={'s': 7, 'e': 11, 'w': 1},
-    room_enemy="none",
-    room_contents="none"
 )
 
 RoomSeven = Room(
@@ -77,22 +72,18 @@ RoomEight = Room(
     room_description=f"You see a bare stone room, {Fore.RED}with a single Lesser Spawn on the far side.{Style.RESET_ALL}",
     room_exits={'n': 7, 's': 9, 'e': 13, 'w': 3},
     room_enemy=enemies.lesser_spawn,
-    room_contents="none"
 )
 
 RoomNine = Room(
     room_number=9,
     room_description=f"This room is barren and nondescript, with only a few skeletons to keep you company.",
     room_exits={'n': 8, 's': 10, 'e': 4, 'w': 14},
-    room_enemy="none",
-    room_contents="none"
 )
 
 RoomTen = Room(
     room_number=10,
     room_description=f"Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered flasks litter the floor. It appears to be an ancient alchemical storeroom.",
     room_exits={'n': 9, 'e': 15, 'w': 5},
-    room_enemy="none",
     room_contents=items.mana_potion
 )
 
@@ -101,14 +92,12 @@ RoomEleven = Room(
     room_description=f"You see a bare stone room, {Fore.RED}with a single clay golem wandering on the far side.{Style.RESET_ALL}",
     room_exits={'s': 12, 'e': 16, 'w': 6},
     room_enemy=enemies.golem,
-    room_contents="none"
 )
 
 RoomTwelve = Room(
     room_number=12,
     room_description=f"Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered flasks litter the floor. It appears to be an ancient alchemical storeroom.",
     room_exits={'n': 11, 's': 13, 'e': 7, 'w': 17},
-    room_enemy="none",
     room_contents=items.health_potion
 )
 
@@ -116,8 +105,6 @@ RoomThirteen = Room(
     room_number=13,
     room_description=f"You see a barren room made of ancient stone riddled with moss and pockmarks. There seems to be no enemies or items in this room.",
     room_exits={'n': 12, 's': 14, 'e': 18, 'w': 8},
-    room_enemy="none",
-    room_contents="none"
 )
 
 RoomFourteen = Room(
@@ -125,14 +112,12 @@ RoomFourteen = Room(
     room_description=f"You see a bare stone room, {Fore.RED}with a single clay golem wandering on the far side.{Style.RESET_ALL}",
     room_exits={'n': 13, 's': 15, 'e': 9, 'w': 9},
     room_enemy=enemies.golem,
-    room_contents="none"
 )
 # TODO: Rewrite room desc
 RoomFifteen = Room(
     room_number=15,
     room_description=f"This room is large and ornate, with carvings of every sort adorning the walls. In the center is a large pedestal with a single Silver Key laying upon it.",
     room_exits={'n': 14, 'e': 20, 'w': 5},
-    room_enemy="none",
     room_contents=items.silver_key
 )
 
@@ -140,8 +125,6 @@ RoomSixteen = Room(
     room_number=16,
     room_description=f"This room is barren and nondescript, with only a few skeletons to keep you company.",
     room_exits={'s': 17, 'e': 21, 'w': 11},
-    room_enemy="none",
-    room_contents="none"
 )
 
 RoomSeventeen = Room(
@@ -149,7 +132,6 @@ RoomSeventeen = Room(
     room_description=f"You see a bare stone room, {Fore.RED}with a single Lesser Spawn on the far side.{Style.RESET_ALL}",
     room_exits={'n': 17, 's': 18, 'e': 22, 'w': 12},
     room_enemy=enemies.lesser_spawn,
-    room_contents="none"
 )
 
 RoomEighteen = Room(
@@ -164,8 +146,6 @@ RoomNineteen = Room(
     room_number=19,
     room_description=f"This room is barren and nondescript, with only a few skeletons to keep you company.",
     room_exits={'n': 18, 's': 20, 'e': 14, 'w': 24},
-    room_enemy="none",
-    room_contents="none"
 )
 
 RoomTwenty = Room(
@@ -173,7 +153,6 @@ RoomTwenty = Room(
     room_description=f"You see a bare stone room, {Fore.RED}with a single Lesser Spawn on the far side.{Style.RESET_ALL}",
     room_exits={'n': 19, 'e': 25, 'w': 15},
     room_enemy=enemies.lesser_spawn,
-    room_contents="none"
 )
 
 RoomTwentyOne = Room(
@@ -188,8 +167,6 @@ RoomTwentyTwo = Room(
     room_number=22,
     room_description=f"This room is barren and nondescript, with only a few skeletons to keep you company.{Style.RESET_ALL}",
     room_exits={'n': 21, 's': 23, 'w': 17},
-    room_enemy="none",
-    room_contents="none"
 )
 
 RoomTwentyThree = Room(
@@ -205,14 +182,12 @@ RoomTwentyFour = Room(
     room_description=f"You see a bare stone room, {Fore.RED}with a single Lesser Spawn on the far side.{Style.RESET_ALL}",
     room_exits={'n': 23, 's': 25, 'w': 19},
     room_enemy=enemies.lesser_spawn,
-    room_contents="none"
 )
 
 RoomTwentyFive = Room(
     room_number=25,
     room_description="Damaged and collapsed shelves decorate the walls, and overturned cauldrons and shattered flasks litter the floor. It appears to be an ancient alchemical storeroom",
     room_exits={'n': 24, 'w': 20},
-    room_enemy="none",
     room_contents=items.health_potion)
 
 RoomTwentySix = Room(
@@ -222,5 +197,4 @@ RoomTwentySix = Room(
     ),
     room_exits={"none"},
     room_enemy=enemies.boss,
-    room_contents="None"
 )

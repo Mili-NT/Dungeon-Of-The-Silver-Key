@@ -63,6 +63,7 @@ class Player:
             print(f"{Fore.WHITE}This room is the same as when you left it.{Style.RESET_ALL}")
         else:
             print(room.room_description)
+            if room.
             input()
             game_map.room_map[room.room_number].isCleared = True
 
