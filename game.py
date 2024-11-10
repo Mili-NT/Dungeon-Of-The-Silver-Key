@@ -58,11 +58,14 @@ class Player:
         self.inventory.add_item(item)
         print(f"{item.item_name} has been added to your inventory.")
     # TODO: Implement enemy and item handling, delay display of game map until after combat/item pickup
-    def enter_room(self, room):
+    def enter_room(self, room, game_map):
         if room.isCleared:
-            pass
-        print(room.room_description)
-        input()
+            print(f"{Fore.WHITE}This room is the same as when you left it.{Style.RESET_ALL}")
+        else:
+            print(room.room_description)
+            input()
+            game_map.room_map[room.room_number].isCleared = True
+
 
     def move(self, direction, game_map):
         # Get the current room from the room_map using the player's location
@@ -72,7 +75,7 @@ class Player:
         if direction in list(room.room_exits.keys()):
             # Update the player's location based on the direction
             self.player_location = game_map.room_map.get(room.room_exits[direction]).room_number
-            self.enter_room(game_map.room_map.get(room.room_exits[direction]))
+            self.enter_room(game_map.room_map.get(room.room_exits[direction]), game_map)
         else:
             print(f"{Fore.YELLOW}There is no door in that direction.")
             print(f"{Fore.RESET}")
