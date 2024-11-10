@@ -24,6 +24,7 @@ from game import Player, GameMap
 # TODO: More adjustments to healing rates needed.
 # TODO: Lesser spawn in room 17 autodefeated (multiple rooms)
 # TODO: Golem in room 14 autodefeated
+# TODO: Map potentially still wonky around room 12
 
 def main():
     player = Player(player_location=13)

@@ -173,8 +173,14 @@ class Player:
                 self.player_sanity -= move.cost
                 enemy.health += move.cost
         else:
-            self.damage_taken += move_effect
-            self.player_health -= move_effect
+            if move.target == "sanity":
+                self.sanity_lost += move_effect
+                self.player_sanity -= move_effect
+            elif move.target == "health":
+                self.damage_taken += move_effect
+                self.player_health -= move_effect
+            elif move.target == "mana":
+                self.player_mana -= move_effect
         if enemy.health <= 0:
             enemy.health = 0
         print(self.format_move_string(move, move_effect, enemy.name))
