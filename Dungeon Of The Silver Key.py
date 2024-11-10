@@ -3415,7 +3415,7 @@ def RoomTwentyThreeCode():
                                 flames from the abyss, searing the target's soul.
                                 """)
                                 print(Fore.YELLOW + "You have learned the spell Void Flame!")
-                                player_moves["Void Flame"] = (35, 50)(35, 50)
+                                player_moves["Void Flame"] = (35, 50)
                             if ItemPickup.upper() == "N":
                                 ItemConfirmation = input(Fore.WHITE + "Are you sure you wish to leave the item "
                                                                       "here? Y/N: ")

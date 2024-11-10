@@ -2,7 +2,6 @@ import random
 import tabulate
 from colorama import Fore, Style
 from pyfiglet import Figlet
-
 import moves
 
 class Player:
@@ -16,6 +15,8 @@ class Player:
         self.player_location = player_location or 13
         self.player_moves = [moves.player_slash, moves.thrust, moves.heal]
         self.in_combat = False
+        # Inventory
+        self.inventory = Inventory()
         # Score components
         self.damage_done = damage_done
         self.damage_taken = damage_taken
@@ -45,6 +46,15 @@ class Player:
         positives = self.damage_done + self.amount_healed
         negatives = self.damage_taken + self.sanity_lost
         self.player_score = positives - negatives
+
+    def add_item_to_inventory(self, item):
+        if item.teaches_move:
+            if item.teaches_move not in self.player_moves:
+                self.player_moves.append(item.teaches_move)
+        if item.pickup_str:
+            print(item.pickup_str)
+        self.inventory.add_item(item)
+        print(f"{item.item_name} has been added to your inventory.")
 
     def move(self, direction, game_map):
         room = game_map.room_map.get(self.player_location)
@@ -171,12 +181,14 @@ class Move:
         self.cost = cost
         self.attributes = attributes
 class Item:
-    def __init__(self, item_name, item_description, item_damage, item_heal, stat_boost):
+    def __init__(self, item_name, item_description, item_damage, item_heal, stat_boost, teaches_move=None, pickup_str=None):
         self.item_name = item_name
         self.item_description = item_description
         self.item_damage = item_damage
         self.item_heal = item_heal
         self.stat_boost = stat_boost
+        self.teaches_move = teaches_move
+        self.pickup_str = pickup_str
 
     def inspect_item(self):
         print(f"This item is a {self.item_name}. It is {self.item_description}.")
@@ -186,6 +198,7 @@ class Item:
             print(f"This item restores {self.item_heal} health.")
         if self.stat_boost > 0:
             print(f"This item boosts your stats by {self.stat_boost}.")
+
 class Inventory:
     def __init__(self):
         self.items = {}
