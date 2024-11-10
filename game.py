@@ -3,6 +3,8 @@ import tabulate
 from colorama import Fore, Style
 from pyfiglet import Figlet
 import moves
+import rooms
+
 
 class Player:
     def __init__(self, player_health=100, player_sanity=100, player_mana=100, player_speed=None,
@@ -57,9 +59,13 @@ class Player:
         print(f"{item.item_name} has been added to your inventory.")
 
     def move(self, direction, game_map):
+        # Get the current room from the room_map using the player's location
         room = game_map.room_map.get(self.player_location)
-        if room and direction in room:
-            self.player_location = room[direction]
+
+        # If the room exists and the direction is valid (check if direction exists in the room's directions)
+        if direction in list(room.room_exits.keys()):
+            # Update the player's location based on the direction
+            self.player_location = game_map.room_map.get(room.room_exits[direction]).room_number
         else:
             print(f"{Fore.YELLOW}There is no door in that direction.")
             print(f"{Fore.RESET}")
@@ -146,7 +152,6 @@ class Player:
             self.player_health -= move_effect
         print(self.format_move_string(move, move_effect))
 
-
     def combat(self, enemy):
         # Determine who takes the first turn based on speed
         player_turn = self.player_speed >= enemy.speed  # Player goes first if speeds are equal
@@ -202,31 +207,31 @@ class GameMap:
         # TODO: room '0' for outside the dungeon, room 26 boss fight
         """
         self.room_map = {
-            1: {'s': 2, 'e': 6},
-            2: {'n': 1, 's': 3, 'e': 7},
-            3: {'n': 2, 's': 4, 'e': 8},
-            4: {'n': 3, 's': 5, 'e': 9},
-            5: {'n': 4, 'e': 10},
-            6: {'s': 7, 'e': 11, 'w': 1},
-            7: {'n': 6, 's': 8, 'e': 12, 'w': 6},
-            8: {'n': 7, 's': 9, 'e': 13, 'w': 3},
-            9: {'n': 8, 's': 10, 'e': 4, 'w': 14},
-            10: {'n': 9, 'e': 15, 'w': 5},
-            11: {'s': 12, 'e': 16, 'w': 6},
-            12: {'n': 11, 's': 13, 'e': 7, 'w': 17},
-            13: {'n': 12, 's': 14, 'e': 18, 'w': 8},
-            14: {'n': 13, 's': 15, 'e': 9, 'w': 9},
-            15: {'n': 14, 'e': 20, 'w': 5},
-            16: {'s': 17, 'e': 21, 'w': 11},
-            17: {'n': 17, 's': 18, 'e': 22, 'w': 12},
-            18: {'n': 17, 's': 19, 'e': 23, 'w': 13},
-            19: {'n': 18, 's': 20, 'e': 14, 'w': 24},
-            20: {'n': 19, 'e': 25, 'w': 15},
-            21: {'s': 22, 'w': 16},
-            22: {'n': 21, 's': 23, 'w': 17},
-            23: {'n': 22, 's': 24, 'w': 18},
-            24: {'n': 23, 's': 25, 'w': 19},
-            25: {'n': 24, 'w': 20}
+            1: rooms.RoomOne,
+            2: rooms.RoomTwo,
+            3: rooms.RoomThree,
+            4: rooms.RoomFour,
+            5: rooms.RoomFive,
+            6: rooms.RoomSix,
+            7: rooms.RoomSeven,
+            8: rooms.RoomEight,
+            9: rooms.RoomNine,
+            10: rooms.RoomTen,
+            11: rooms.RoomEleven,
+            12: rooms.RoomTwelve,
+            13: rooms.RoomThirteen,
+            14: rooms.RoomFourteen,
+            15: rooms.RoomFifteen,
+            16: rooms.RoomSixteen,
+            17: rooms.RoomSeventeen,
+            18: rooms.RoomEighteen,
+            19: rooms.RoomNineteen,
+            20: rooms.RoomTwenty,
+            21: rooms.RoomTwentyOne,
+            22: rooms.RoomTwentyTwo,
+            23: rooms.RoomTwentyThree,
+            24: rooms.RoomTwentyFour,
+            25: rooms.RoomTwentyFive
         }
         self.game_map = [
             [1, 6, 11, 16, 21],
@@ -241,5 +246,5 @@ class GameMap:
         print(tabulate.tabulate(self.game_map, tablefmt="fancy_grid"))
         print(f"{Fore.LIGHTWHITE_EX}\n  N\nW o E\n  S")
         print(f"{Fore.YELLOW}You are in room {player_location}.")
-        print(f"{Fore.LIGHTWHITE_EX}There are exits to the {list(self.room_map[player_location].keys())}.")
+        print(f"{Fore.LIGHTWHITE_EX}There are exits to the {list(self.room_map[player_location].room_exits.keys())}.")
         print(f"{Fore.RESET}")

@@ -24,6 +24,7 @@ from time import sleep
 # -----------------------
 # Important rooms: 3 (Miniboss), 5 (Miniboss), 7 (Miniboss), 13 (START), 15 (Key Item), 21 (Miniboss), 23 (Miniboss)
 # TODO: Room code
+# TODOL: You automatically learn pure of mind for some reason, figure it out later
 
 
 def main():
