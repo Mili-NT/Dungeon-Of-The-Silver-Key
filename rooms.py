@@ -77,7 +77,7 @@ RoomEight = Room(
 RoomNine = Room(
     room_number=9,
     room_description=f"This room is barren and nondescript, with only a few skeletons to keep you company.",
-    room_exits={'n': 8, 's': 10, 'e': 4, 'w': 14},
+    room_exits={'n': 8, 's': 10, 'e': 14, 'w': 4},
 )
 
 RoomTen = Room(
