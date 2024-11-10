@@ -8,7 +8,7 @@ from time import sleep
 
 
 
-#                                           Coded by Mili (Python 3.6.0, January 2019, Rewritten November 2024)
+#                                          Coded by Mili (Python 3.6.0, January 2019, Rewritten November 2024)
 #                                          Credits to H.P. Lovecraft and r/LearnPython
 # Map:
 # ------------------------

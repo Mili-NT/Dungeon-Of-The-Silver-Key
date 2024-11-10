@@ -85,7 +85,6 @@ class Player:
         return move_str
 
     def player_turn(self, enemy):
-        move = None
         while True:
             print(f"{Fore.WHITE}Select your action: {', '.join([m.name for m in self.player_moves])}{Style.RESET_ALL}")
             player_action = input(f"{Fore.WHITE}> ").lower()
@@ -130,7 +129,7 @@ class Player:
         print(self.format_move_string(move, move_effect))
 
     def enemy_turn(self, enemy):
-        move = random.choice(enemy.moves)
+        move = random.choice(enemy.enemy_moves)
         move_effect = random.randint(*move.damage_range)
         if move.attributes["restore"]:
             restore_target = move.attributes["restore_target"]
@@ -200,7 +199,7 @@ class GameMap:
         # Maps
         """
         This map shows all possible doors in the dungeon and prevents players from walking through the walls into nonexistent rooms.
-        the integers are there for clarity and are not essential.
+        # TODO: room '0' for outside the dungeon, room 26 boss fight
         """
         self.room_map = {
             1: {'s': 2, 'e': 6},
@@ -229,7 +228,7 @@ class GameMap:
             24: {'n': 23, 's': 25, 'w': 19},
             25: {'n': 24, 'w': 20}
         }
-        self.overmap = [
+        self.game_map = [
             [1, 6, 11, 16, 21],
             [2, 7, 12, 17, 22],
             [3, 8, 13, 18, 23],
@@ -239,7 +238,7 @@ class GameMap:
         self.rooms_cleared = {}
 
     def display(self, player_location, invalid_move=False):
-        print(tabulate.tabulate(self.overmap, tablefmt="fancy_grid"))
+        print(tabulate.tabulate(self.game_map, tablefmt="fancy_grid"))
         print(f"{Fore.LIGHTWHITE_EX}\n  N\nW o E\n  S")
         print(f"{Fore.YELLOW}You are in room {player_location}.")
         print(f"{Fore.LIGHTWHITE_EX}There are exits to the {list(self.room_map[player_location].keys())}.")
