@@ -4,12 +4,13 @@ import items
 
 
 class Room:
-    def __init__(self, room_number, room_description, room_exits, room_enemy, room_contents):
+    def __init__(self, room_number, room_description, room_exits, room_enemy, room_contents, is_cleared=False):
         self.room_number = room_number
         self.room_description = room_description
         self.room_exits = room_exits
         self.room_enemy = room_enemy
         self.room_contents = room_contents
+        self.isCleared = is_cleared
 
     def location_check(self):
         print(self.room_description)
