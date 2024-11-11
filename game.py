@@ -47,9 +47,8 @@ class Player:
     def calc_score(self):
         positives = self.damage_done + self.amount_healed
         negatives = self.damage_taken + self.sanity_lost
-        # yeah that's readable
-        total = 0 if (positives - negatives) == 0 else positives + negatives
-        self.player_score = positives - negatives
+        total = positives - negatives
+        self.player_score = 0 if total < 0 else total
 
     def add_item_to_inventory(self, item):
         if item.teaches_move:
@@ -59,6 +58,7 @@ class Player:
             print(item.pickup_str)
         self.inventory.add_item(item)
         print(f"{item.item_name} has been added to your inventory.")
+
     # TODO: Implement enemy and item handling, delay display of game map until after combat/item pickup
     def enter_room(self, room, game_map):
         if room.isCleared:
@@ -99,7 +99,10 @@ class Player:
         move_str = move_str.replace('%dmg', str(move_effect))
 
         # Replace %sanity with the player's current sanity
-        move_str = move_str.replace('%sanity', str(self.player_sanity))
+        if move.target == "sanity":
+            move_str = move_str.replace('%sanity', str(move_effect))
+        else:
+            move_str = move_str.replace('%sanity', str(self.player_sanity))
 
         # Replace %mana with the player's current mana
         move_str = move_str.replace('%mana', str(self.player_mana))
@@ -126,36 +129,29 @@ class Player:
                     break
         # MOVE EFFECTS:
         move_effect = random.randint(*move.damage_range)
-        if move.attributes["spell"]:
+        if move.attributes.get("spell"):
             self.player_mana -= move.cost
-        if move.attributes["restore"]:
+        # Restorative spells (i.e. heal, greater heal, call of madness, etc.)
+        if move.attributes.get("restore"):
             restore_target = move.attributes["restore_target"]
-            if move.target != restore_target:
-                if move.target == "sanity" and restore_target == "mana":
-                    self.player_sanity -= move.cost
-                    self.player_mana += move.cost
-                elif move.target == "health" and restore_target == "mana":
-                    self.player_health += move.cost
-                    self.player_mana -= move.cost
-                elif move.target == "mana" and restore_target == "sanity":
-                    self.player_mana -= move.cost
-                    self.player_sanity += move.cost
-            else:
-                if restore_target == "sanity":
-                    self.player_sanity += move_effect
-                    if self.player_sanity > 100:
-                        self.player_sanity = 100
-                elif restore_target == "health":
-                    self.player_health += move_effect
-                    if self.player_health > 100:
-                        self.player_health = 100
-                elif restore_target == "mana":
-                    self.player_mana += move_effect
-                    if self.player_mana > 100:
-                        self.player_mana = 100
+            # 'swapping' spells i.e .call of madness
+            if move.target == "sanity" and restore_target == "mana":
+                self.player_sanity -= move_effect
+                self.player_mana += move_effect
+                if self.player_sanity <= 0:
+                    self.game_over(sanity_loss=True)
+            elif move.target == "health" and restore_target == "mana":
+                self.player_health += move_effect
+                self.player_mana -= move_effect
+            elif move.target == "mana" and restore_target == "sanity":
+                self.player_mana -= move_effect
+                self.player_sanity += move_effect
         else:
+            # direct damage moves
             self.damage_done += move_effect
             enemy.health -= move_effect
+
+        # Print the move description with updated values
         print(self.format_move_string(move, move_effect))
 
     def enemy_turn(self, enemy):
