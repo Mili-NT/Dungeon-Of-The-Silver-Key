@@ -5,7 +5,6 @@ from pyfiglet import Figlet
 import moves
 import rooms
 
-
 class Player:
     def __init__(self, player_health=100, player_sanity=100, player_mana=100, player_speed=None,
                  player_location=None, damage_done=0, damage_taken=0, amount_healed=0,
@@ -68,8 +67,10 @@ class Player:
             if room.room_enemy:
                 self.combat(room.room_enemy)
             if room.room_contents:
-                self.add_item_to_inventory(room.room_contents)
+                print(f"{Fore.YELLOW}This room contains an {room.room_contents.item_name}!{Style.RESET_ALL}")
+                self.inventory.add_item(room.room_contents)
             game_map.room_map[room.room_number].isCleared = True
+
 
 
     def move(self, direction, game_map):
@@ -220,15 +221,20 @@ class Inventory:
             del self.items[item]
 
     def inspect_inventory(self):
-        print('\t'.join(['Name', 'Description', 'Damage', 'Healing', 'Stat Boost']))
+        output = ['\t'.join(['Name', 'Description', 'Damage', 'Healing', 'Stat Boost'])]
+
         for item, count in self.items.items():
-            print(f"[{count}] {item.item_name}. {item.item_description}.")
+            item_info = f"[{count}] {item.item_name}. {item.item_description}."
+            output.append(item_info)
+
             if item.item_damage > 0:
-                print(f"This item does {item.item_damage} damage.")
+                output.append(f"This item does {item.item_damage} damage.")
             if item.item_heal > 0:
-                print(f"This item restores {item.item_heal} health.")
+                output.append(f"This item restores {item.item_heal} health.")
             if item.stat_boost > 0:
-                print(f"This item boosts your stats by {item.stat_boost}.")
+                output.append(f"This item boosts your stats by {item.stat_boost}.")
+
+        return "\n".join(output)
 class GameMap:
     def __init__(self):
         # Maps

@@ -1,6 +1,7 @@
 import os
 
 from game import Player, GameMap
+from parser import CommandParser
 
 #                                          Coded by Mili (Python 3.6.0, January 2019, Rewritten November 2024)
 #                                          Credits to H.P. Lovecraft and r/LearnPython
@@ -29,12 +30,14 @@ from game import Player, GameMap
 def main():
     player = Player(player_location=13)
     game_map = GameMap()
-
+    command_parser = CommandParser()
     while True:
         game_map.display(player.player_location)
-        direction = input("Enter a direction (n/s/e/w): ").lower()
-        os.system('cls' if os.name == 'nt' else 'clear')
-        player.move(direction, game_map)
+
+        command = input(">  ").lower()
+        output = command_parser.parse_command(player, game_map, command)
+        print(output)
+        #player.move(direction, game_map)
 
 
 if __name__ == "__main__":
