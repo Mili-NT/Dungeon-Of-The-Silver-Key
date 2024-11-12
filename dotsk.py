@@ -28,6 +28,9 @@ from parse import CommandParser
 # TODO: Call of Madness doesnt properly exchange sanity for mana
 # TODO: pure of mind doesnt decrement mana and isnt capped at 100 sanity
 # TODO: bad parser implementation -> inv doesnt match to inventory
+# TODO: All items labeled as [1] in Inventory.display()
+# TODO: Items autopicked up ( or not)
+
 
 def main():
     player = Player(player_location=13)

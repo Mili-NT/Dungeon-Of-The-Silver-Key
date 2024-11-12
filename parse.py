@@ -49,10 +49,10 @@ class CommandParser:
         return player.inventory.inspect_inventory()
     def look(self, player, game_map):
         room = game_map.room_map[player.player_location]
-        desc = f"\n{Fore.WHITE}This room is the same as when you left it.{Style.RESET_ALL}" if room.isCleared else room.room_description
+        desc = f"\n{Fore.WHITE}This room is the same as when you left it.\n{Style.RESET_ALL}" if room.isCleared else room.room_description
         if room.room_contents:
             desc += f"{Fore.YELLOW}This room contains a {room.room_contents.item_name}{Style.RESET_ALL}"
-        return
+        return desc
 
     def take_item(self, player, game_map, *args):
         item = " ".join(args)

@@ -68,7 +68,6 @@ class Player:
                 self.combat(room.room_enemy)
             if room.room_contents:
                 print(f"{Fore.YELLOW}This room contains an {room.room_contents.item_name}!{Style.RESET_ALL}")
-                self.inventory.add_item(room.room_contents)
             game_map.room_map[room.room_number].isCleared = True
 
 
