@@ -14,7 +14,7 @@ class Player:
         self.player_mana = player_mana
         self.player_speed = player_speed if player_speed is not None else random.randint(45, 100)
         self.player_location = player_location or 13
-        self.player_moves = [moves.player_slash, moves.thrust, moves.heal]
+        self.player_moves = [moves.player_slash, moves.die, moves.thrust, moves.heal]
         self.in_combat = False
         # Inventory
         self.inventory = Inventory()

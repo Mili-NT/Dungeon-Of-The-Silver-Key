@@ -19,6 +19,16 @@ thrust = Move(
         "restore": False
     }
 )
+die = Move(
+    name="die",
+    damage_range=(999, 999),
+    target="health",
+    move_str=f"{Fore.GREEN}You call upon the power of debugging, dealing %dmg damage.{Style.RESET_ALL}",
+    attributes={
+        "spell": False,
+        "restore": False
+    }
+)
 player_slash = Move(
     name="slash",
     damage_range=(5, 55),

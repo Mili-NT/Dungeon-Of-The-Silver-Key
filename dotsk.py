@@ -1,7 +1,7 @@
 import os
 
 from game import Player, GameMap
-from parser import CommandParser
+from parse import CommandParser
 
 #                                          Coded by Mili (Python 3.6.0, January 2019, Rewritten November 2024)
 #                                          Credits to H.P. Lovecraft and r/LearnPython
@@ -26,6 +26,8 @@ from parser import CommandParser
 # TODO: Golem in room 14 autodefeated
 # TODO: Map potentially still wonky around room 12
 # TODO: Call of Madness doesnt properly exchange sanity for mana
+# TODO: pure of mind doesnt decrement mana and isnt capped at 100 sanity
+# TODO: bad parser implementation -> inv doesnt match to inventory
 
 def main():
     player = Player(player_location=13)
@@ -36,8 +38,8 @@ def main():
 
         command = input(">  ").lower()
         output = command_parser.parse_command(player, game_map, command)
-        print(output)
-        #player.move(direction, game_map)
+        if output:
+            print(output)
 
 
 if __name__ == "__main__":
